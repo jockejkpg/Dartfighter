@@ -719,3 +719,54 @@ img{ max-width: 100%; height: auto; display:block; }
 @supports (height: 100svh){
   .stage{ height: calc(100svh - 24px); }
 }
+
+
+/* --- Fullscreen behavior (PWA) --- */
+html, body { height: 100%; }
+body {
+  overflow: hidden;
+}
+
+
+/* === Landscape full-screen tuning === */
+@media (orientation: landscape) and (max-height: 520px) {
+  .stage{
+    height: 100svh;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    padding:
+      calc(10px + env(safe-area-inset-top))
+      calc(10px + env(safe-area-inset-right))
+      calc(10px + env(safe-area-inset-bottom))
+      calc(10px + env(safe-area-inset-left));
+  }
+
+  /* Startbild: rimlig storlek i liggande */
+  .startBtn img{
+    width: min(560px, 70vw);
+    height: auto;
+  }
+
+  /* Spelvyn: bred layout i liggande */
+  .playHeader{
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* Minska info för att spara höjd */
+  .midCol{
+    font-size: 16px;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  /* Keypad mer kompakt */
+  .keypad{
+    gap: 6px;
+  }
+  .dartCell{
+    height: clamp(52px, 12svh, 82px);
+  }
+}
