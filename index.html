@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dart Scorer (1v1)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <main class="stage" role="application" aria-label="Dart Scorer">
+    <!-- HOME -->
+    <section id="home" class="view active">
+      <button id="btnNewMatch" class="startBtn" aria-label="Ny 1v1 match">
+        <BR>
+        <BR>
+        <BR>  
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <img src="assets/start.png" alt="Start" draggable="false" />
+      </button>
+    </section>
+
+    <!-- SETUP -->
+    <section id="setup" class="view">
+      
+      <div class="card">
+        <div id="setupStepPlayers" class="setupStep active">
+          <img class="choose-player-title" src="assets/chooseplayer.png" alt="Välj spelare" draggable="false" />
+
+          <div class="carouselWrap">
+            <div class="carouselCol">
+              <div class="carouselLabel"></div>
+              <div class="carousel">
+                <button class="carBtn" id="carPrevA" aria-label="Föregående A">‹</button>
+                <div class="carCenter">
+                  <img id="carImgA" src="assets/players/ludvig.jpg" alt="Spelare A" />
+                  <div id="carNameA" class="carName">—</div>
+                </div>
+                <button class="carBtn" id="carNextA" aria-label="Nästa A">›</button>
+              </div>
+</div>
+
+            <div class="vsBig" aria-hidden="true">
+              <img class="vs-img" src="assets/vs.png" alt="" draggable="false" />
+            </div>
+
+            <div class="carouselCol">
+              <div class="carouselLabel right"></div>
+              <div class="carousel">
+                <button class="carBtn" id="carPrevB" aria-label="Föregående B">‹</button>
+                <div class="carCenter">
+                  <img id="carImgB" src="assets/players/emelie.jpg" alt="Spelare B" />
+                  <div id="carNameB" class="carName">—</div>
+                </div>
+                <button class="carBtn" id="carNextB" aria-label="Nästa B">›</button>
+              </div>
+</div>
+          </div>
+
+          <div class="row">
+            <button id="btnBackHome" class="img-btn" aria-label="Tillbaka">
+              <img src="assets/back.png" alt="Tillbaka" draggable="false" />
+            </button>
+            <div class="spacer"></div>
+            <button id="btnNextSettings" class="img-btn" aria-label="Vidare">
+              <img src="assets/next.png" alt="Vidare" draggable="false" />
+            </button>
+          </div>
+        </div>
+
+        <div id="setupStepSettings" class="setupStep">
+          <img class="choose-player-title" src="assets/settings.png" alt="settings" draggable="false" />
+          <div class="card grid2 sfSettings">
+            
+            <label>
+              Start
+              <select id="startScore">
+                <option value="301">301</option>
+                <option value="501" selected>501</option>
+                <option value="701">701</option>
+              </select>
+            </label>
+
+            <label>
+              Best of legs
+              <select id="bestOfLegs">
+                <option>1</option><option>3</option><option selected>5</option><option>7</option><option>9</option><option>11</option>
+              </select>
+            </label>
+
+            <label>
+              <b></b>Best of sets</b>
+              <select id="bestOfSets">
+                <option selected>1</option><option>3</option><option>5</option><option>7</option>
+              </select>
+            </label>
+
+            <label class="check span2">
+              <input id="alternateStart" type="checkbox" checked />
+              Växla startare per leg
+            </label>
+            
+            <label class="check">
+              <input id="doubleIn" type="checkbox" />
+              Double In
+            </label>
+
+            <label class="check">
+              <input id="doubleOut" type="checkbox" checked />
+              Double Out
+            </label>
+          </div>
+
+          <div class="row">
+            <!-- Back as PNG -->
+            <button id="btnBackPlayers" class="img-btn big" aria-label="Tillbaka">
+              <img src="assets/back.png" alt="Tillbaka" draggable="false" />
+            </button>
+
+            <div class="spacer"></div>
+
+            <!-- Starta match as start.png -->
+            <button id="btnStartMatch" class="img-btn big" aria-label="Starta match">
+              <img src="assets/start.png" alt="Starta match" draggable="false" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section id="play" class="view">
+      <header class="playHeader">
+        <div class="scoreCol">
+          <div class="miniPortrait"><img id="portraitA" alt="Spelare A"></div>
+          <div class="name" id="nameA">A</div>
+          <div class="score" id="scoreA">501</div>
+          <div class="hpOuter left"><div class="hpInner" id="hpA"></div></div>
+          <div class="inFlag" id="inA"></div>
+        </div>
+
+        <div class="midCol card compact" id="midInfo"></div>
+
+        <div class="scoreCol right">
+          <div class="miniPortrait"><img id="portraitB" alt="Spelare B"></div>
+          <div class="name" id="nameB">B</div>
+          <div class="score" id="scoreB">501</div>
+          <div class="hpOuter right"><div class="hpInner" id="hpB"></div></div>
+          <div class="inFlag" id="inB"></div>
+        </div>
+      </header>
+
+      <div class="card compact turnBar">
+        <div>
+          <div class="muted">Tur</div>
+          <div id="turnDarts" class="turnDarts">(tom)</div>
+        </div>
+        <div class="right">
+          <div class="muted">Poäng</div>
+          <div id="turnPoints" class="turnPoints">0</div>
+        </div>
+      </div>
+
+      <div class="card compact controls">
+        <div class="muted">Inmatning: klicka på zonen (T / S / D) på 1–20.</div>
+        <div class="spacer"></div>
+        <button id="btnUndoDart" class="btn small">Undo dart</button>
+        <button id="btnClearTurn" class="btn small">Rensa tur</button>
+      </div>
+
+      <div class="keypadWrap">
+        <div id="keypad" class="keypad" aria-label="Keypad"></div>
+
+        <div class="specialRow">
+          <button class="btn special" data-special="SB">SB (25)</button>
+          <button class="btn special" data-special="DB">DB (50)</button>
+          <button class="btn special" data-special="MISS">MISS</button>
+          <button id="btnCommit" class="btn primary commit">Registrera tur</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="btnUndoTurn" class="btn">Undo senaste tur</button>
+        <button id="btnEndToMenu" class="btn">Avsluta till meny</button>
+        <div class="spacer"></div>
+        <label class="check muted">
+          <input id="saveLocal" type="checkbox" checked />
+          Spara lokalt (historik)
+        </label>
+      </div>
+
+      <div class="card compact" id="toast" aria-live="polite" hidden></div>
+    </section>
+
+    <!-- WINNER -->
+    <section id="winner" class="view" aria-label="Vinnare">
+      <div class="winnerWrap">
+        <img class="winnerTrophy" src="assets/winner.png" alt="Pokal" draggable="false" />
+        <img id="winnerPortrait" class="winnerPortrait" alt="Vinnare" draggable="false" />
+        <div id="winnerName" class="winnerName">VINNARE</div>
+
+
+<button id="btnNewGameWinner" class="newGameBtn" aria-label="Ny match">
+  <img src="assets/newgame.png" alt="Ny match" draggable="false" />
+</button>
+      </div>
+    </section>
+
+  </main>
+
+
+  <div id="fsModal" class="modal" hidden>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="fsTitle">
+      <div id="fsTitle" class="modalTitle">Klicka Ja för att starta i helskärm.</div>
+      <div class="modalText muted"></div>
+      <div class="modalRow">
+        <button id="fsNo" class="btn">Nej</button>
+        <button id="fsYes" class="btn primary">Ja</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
