@@ -669,3 +669,53 @@ input[type="text"]:focus, select:focus{
   }
 }
 
+
+
+/* --- Mobile-first enhancements (PWA friendly) --- */
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body{
+  overscroll-behavior: none;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+button, .btn, .img-btn{ touch-action: manipulation; }
+img{ max-width: 100%; height: auto; display:block; }
+
+@media (max-width: 520px){
+  .stage{
+    width: calc(100vw - 12px);
+    height: calc(100svh - 12px);
+    margin: 6px auto;
+    padding: 10px;
+  }
+
+  .img-btn img{ height: 112px; }
+
+  .playHeader{ grid-template-columns: 1fr; }
+  .scoreCol.right{ text-align: left; }
+  .score{ font-size: 34px; }
+
+  .midCol{ font-size: 18px; text-align: center; }
+
+  .keypad{ grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .dartCell{ height: clamp(64px, 9.8svh, 96px); }
+
+  .specialRow{ grid-template-columns: 1fr 1fr; }
+  #btnCommit{ grid-column: 1 / -1; }
+
+  .winnerTrophy{ width: min(520px, 86vw); }
+  .winnerPortrait{
+    width: min(220px, 60vw);
+    height: min(220px, 60vw);
+  }
+  .newGameBtn img{ width: min(280px, 78vw); }
+}
+
+@supports (height: 100svh){
+  .stage{ height: calc(100svh - 24px); }
+}
