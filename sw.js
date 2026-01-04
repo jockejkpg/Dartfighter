@@ -1,5 +1,5 @@
 /* Dart Scorer - Service Worker (cache-first for static assets) */
-const VERSION = "dart-scorer-v1";
+const VERSION = "dart-scorer-v2";
 
 const APP_SHELL = [
   "./",
@@ -20,11 +20,11 @@ const APP_SHELL = [
   "./assets/newgame.png",
 
   // Icons
-  "./icon-192.png",
-  "./icon-512.png",
-  "./icon-192-maskable.png",
-  "./icon-512-maskable.png",
-  "./apple-touch-icon.png",
+  "./assets/icons/icon-192.png",
+  "./assets/icons/icon-512.png",
+  "./assets/icons/icon-192-maskable.png",
+  "./assets/icons/icon-512-maskable.png",
+  "./assets/icons/apple-touch-icon.png",
 
   // SFX
   "./assets/sfx/start.mp3",
