@@ -2,19 +2,8 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dart Scorer (1v1)</title>
-  <meta name="theme-color" content="#0f1114" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="application-name" content="Dart Scorer" />
-  <meta name="apple-mobile-web-app-title" content="Dart Scorer" />
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -238,13 +227,5 @@
   </div>
 
   <script src="app.js"></script>
-  <script>
-    // PWA: register service worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").catch(() => {});
-      });
-    }
-  </script>
 </body>
 </html>
