@@ -1,0 +1,279 @@
+.btn{
+  min-height: var(--touch);
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  cursor:pointer;
+  user-select:none;
+  font-weight: 800;
+  transition: transform .08s ease, border-color .12s ease;
+}
+.btn:active{ transform: scale(.98); }
+.btn.primary{
+  background: linear-gradient(180deg, rgba(31,191,107,.32), rgba(31,191,107,.12));
+  border-color: rgba(31,191,107,.55);
+}
+.btn.danger{
+  background: linear-gradient(180deg, rgba(255,59,59,.28), rgba(255,59,59,.10));
+  border-color: rgba(255,59,59,.55);
+}
+.btn.ghost{
+  background: transparent;
+}
+
+.pill{
+  min-height: var(--touch);
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(15,26,51,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-weight: 800;
+  cursor:pointer;
+  user-select:none;
+}
+.pill:active{ transform: scale(.99); }
+
+.seg{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.seg .seg-btn{
+  min-height: var(--touch);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  font-weight: 900;
+  color: var(--text);
+  cursor:pointer;
+}
+.seg .seg-btn[aria-pressed="true"]{
+  border-color: rgba(234,240,255,.55);
+  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05));
+}
+
+.stepper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.12);
+}
+.stepper .value{
+  font-weight: 900;
+  font-size: var(--h2);
+}
+.icon-btn{
+  width: var(--touch);
+  height: var(--touch);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor:pointer;
+  font-size: 18px;
+  font-weight: 900;
+}
+.icon-btn:active{ transform: scale(.98); }
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+}
+.label{
+  font-size: var(--small);
+  color: var(--muted);
+  font-weight: 700;
+}
+.input{
+  min-height: var(--touch);
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+}
+.input:focus{
+  outline:none;
+  border-color: rgba(234,240,255,.45);
+}
+
+.player-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+.player-card{
+  padding: 12px;
+  display:flex;
+  gap: 12px;
+  align-items:center;
+}
+.avatar{
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  background: rgba(0,0,0,.28);
+}
+.modal-overlay.open{ display:flex; }
+.modal{
+  width: min(460px, 100%);
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(15,26,51,.88);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 30px 80px rgba(0,0,0,.55);
+  backdrop-filter: blur(12px);
+}
+.modal .modal-title{
+  text-align:center;
+  font-weight: 900;
+  font-size: var(--h2);
+}
+.modal .modal-sub{
+  text-align:center;
+  font-size: var(--small);
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.blur-when-modal .card,
+.blur-when-modal .main,
+.blur-when-modal .footer{
+  filter: blur(7px);
+  pointer-events:none;
+}
+
+.notice{
+  font-size: var(--small);
+  color: var(--muted);
+  text-align:center;
+  min-height: 18px;
+}
+
+.kbd{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.16);
+}
+
+.divider{
+  height:1px;
+  background: rgba(255,255,255,.10);
+  margin: 10px 0;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: var(--small);
+  display:none;
+}
+.toast.show{ display:block; }
+
+/* Dart UI */
+.dart-grid{
+  flex: 1;
+  min-height: 0;
+  padding: 12px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 2.8vw, 14px);
+}
+.dart-circle{
+  aspect-ratio: 1 / 1;
+  min-height: var(--touch);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+  color: var(--text);
+  font-weight: 900;
+  font-size: clamp(16px, 4.2vw, 20px);
+  cursor:pointer;
+}
+.dart-circle:active{ transform: scale(.97); }
+
+.dart-actions{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.dot{
+  width:18px; height:18px; border-radius:999px;
+  border: 2px solid rgba(255,255,255,.25);
+  display:inline-block;
+}
+.dot.green{ background: var(--green); }
+.dot.red{ background: var(--red); }
+
+.miss-x{ width:18px; height:18px; position:relative; display:inline-block; }
+.miss-x::before,.miss-x::after{
+  content:""; position:absolute; inset:0; margin:auto;
+  width:18px; height:3px; background: var(--red);
+  border-radius:3px;
+}
+.miss-x::before{ transform: rotate(45deg); }
+.miss-x::after{ transform: rotate(-45deg); }
+
+.mult-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.mult-choice{
+  aspect-ratio: 1 / 1;
+  min-height: var(--touch);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+  color: var(--text);
+  font-weight: 900;
+  font-size: clamp(14px, 3.8vw, 16px);
+  cursor:pointer;
+}
+.mult-choice:active{ transform: scale(.97); }
+
+body.modal-open .app{
+  filter: blur(7px);
+  pointer-events:none;
+}
+body.modal-open .modal-overlay{
+  pointer-events:auto;
+  filter:none;
+}

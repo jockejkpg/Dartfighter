@@ -1,0 +1,13 @@
+/* Responsive behavior */
+@media (min-width: 520px){
+  .player-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 740px){
+  .app{ max-width: 780px; margin: 0 auto; }
+}
+
+/* Very short heights: compress some blocks */
+@media (max-height: 700px){
+  .topbar{ padding: 10px 12px; }
+}
